@@ -6,6 +6,7 @@
 print("Welcome to the Slot Machine!")
 numberOfTimes = input('How many times do you want to play?')
 slotsPossible = ["bar","bar","bar","cherry","crown"]
+Loser = ["\nFEED ME MORE MONEY", "\nYa lose", "\nThanks dood", "\nHow's that retirement fund looking?"]
 #
 # This part builds an array of possible answers.
 # (the are also called "elements" of the array.
@@ -27,6 +28,8 @@ def play():
     slot1=choice(slotsPossible)
     slot2=choice(slotsPossible)
     slot3=choice(slotsPossible)
+    sassyLoss = choice(Loser)
+    win = sassyLoss
     #
     # Here we set up three slot by naming three variables as
     # slot1, slot2, and slot3.  If we wanted more, we would just
@@ -38,13 +41,12 @@ def play():
     #
     ######################################################
     #
-    win = ""
     if (slot1==slot2==slot3=="cherry"):
-        win = "You win $100"
+        win = "\nYou win $100"
     if (slot1==slot2==slot3=="crown"):
-        win = "You win $50"
+        win = "\nYou win $50"
     if (slot1==slot2==slot3=="bar"):
-        win = "You win $5"
+        win = "\nYou win $5"
     return slot1+":"+slot2+":"+slot3+" "+win
     #
     # Here is where we decide if you won.  We check to see
