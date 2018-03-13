@@ -16,3 +16,5 @@ def play():
     return slot1+":"+slot2+":"+slot3+" "+win
 for i in range(int(numberOfTimes)):
     print(play())
+    
+#we should add a tracker for winnings
