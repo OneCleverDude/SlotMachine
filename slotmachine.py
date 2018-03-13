@@ -6,7 +6,7 @@ def play():
     slot1=choice(slotsPossible)
     slot2=choice(slotsPossible)
     slot3=choice(slotsPossible)
-    win = ""
+   # win = ""
     if (slot1==slot2==slot3=="cherry"):
         win = "You win $100"
     if (slot1==slot2==slot3=="crown"):
