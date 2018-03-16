@@ -6,7 +6,9 @@
 print("Welcome to the Slot Machine!")
 numberOfTimes = input('How many times do you want to play?')
 slotsPossible = ["bar","bar","bar","cherry","crown"]
-Loser = ["\nFEED ME MORE MONEY", "\nYa lose", "\nThanks dood", "\nHow's that retirement fund looking?"]
+Loser = ["\nNot today kid!"]
+money = int(input ('How much money do you have to start?'))
+perpullcost = int(input('How much do you want to gamble per pull?'))
 #
 # This part builds an array of possible answers.
 # (the are also called "elements" of the array.
@@ -24,7 +26,7 @@ from random import *
 #
 ######################################################
 #
-def play():
+def play(currentmoney,perpullcost):
     slot1=choice(slotsPossible)
     slot2=choice(slotsPossible)
     slot3=choice(slotsPossible)
@@ -42,12 +44,16 @@ def play():
     ######################################################
     #
     if (slot1==slot2==slot3=="cherry"):
-        win = "\nYou win $100"
+        win = "\nYou win "+str(perpullcost)
+        currentmoney = currentmoney + int(perpullcost*10)
     if (slot1==slot2==slot3=="crown"):
         win = "\nYou win $50"
+        currentmoney = currentmoney + int(50)
     if (slot1==slot2==slot3=="bar"):
         win = "\nYou win $5"
-    return slot1+":"+slot2+":"+slot3+" "+win
+        currentmoney = currentmoney + int(5)
+    print(slot1+":"+slot2+":"+slot3+" "+win)
+    return currentmoney
     #
     # Here is where we decide if you won.  We check to see
     # if the three slot variables are all equivilant (remember
@@ -57,6 +63,7 @@ def play():
     #
     ######################################################
 for i in range(int(numberOfTimes)):
-    print(play())
-    
+    money = money - int(perpullcost)
+    money = int(play(money, perpullcost))
+    print("You have "+str(money)+" left.")
 #we should add a tracker for winnings
